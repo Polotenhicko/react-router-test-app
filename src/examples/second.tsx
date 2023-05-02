@@ -18,6 +18,9 @@ export function App2() {
 					<li>
 						<Link to="/topics">Topics</Link>
 					</li>
+					<li>
+						<Link to="/topics/lol">Topics:123</Link>
+					</li>
 				</ul>
 
 				<Switch>
@@ -65,9 +68,13 @@ function Topics() {
           that build on the /topics URL path. You can think of the
           2nd <Route> here as an "index" page for all topics, or
           the page that is shown when no topic is selected */}
+			{/* вверху более специфичный url, он будет показан первым */}
 			<Switch>
 				<Route path={`${match.path}/:topicId`}>
 					<Topic />
+				</Route>
+				<Route path={`${match.path}`}>
+					<div>123</div>
 				</Route>
 				<Route path={match.path}>
 					<h3>Please select a topic.</h3>
