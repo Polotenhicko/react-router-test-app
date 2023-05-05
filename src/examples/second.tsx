@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 
 interface RouteParams {
 	topicId: string;
