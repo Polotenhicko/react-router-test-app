@@ -4,7 +4,7 @@ interface RouteParams {
   topicId: string;
 }
 
-export function Topic() {
-  let { topicId } = useParams<RouteParams>();
+export default function Topic() {
+  const { topicId } = useParams<RouteParams>();
   return <h3>Requested topic ID: {topicId}</h3>;
 }

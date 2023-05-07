@@ -1,1 +1,1 @@
-export { TopicsRouter } from './TopicsRouter';
+export { default as TopicsRouter } from './TopicsRouter';

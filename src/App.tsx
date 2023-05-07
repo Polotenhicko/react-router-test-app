@@ -1,24 +1,28 @@
-import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { TopicsRouter } from './TopicsRouter';
-import { Home } from './Home';
-import { About } from './About';
-import { Navigation } from './NavbarNavigation';
+import { Switch, Route } from 'react-router-dom';
+import { NavbarNavigation } from './NavbarNavigation';
+import React from 'react';
+
+const LazyHome = React.lazy(() => import('./Home/Home'));
+const LazyAbout = React.lazy(() => import('./About/About'));
+const LazyTopicsRouter = React.lazy(() => import('./TopicsRouter/TopicsRouter'));
 
 export function App() {
   return (
     <>
-      <Navigation />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/topics">
-          <TopicsRouter />
-        </Route>
-      </Switch>
+      <NavbarNavigation />
+      <React.Suspense fallback={<div>Загрузка....</div>}>
+        <Switch>
+          <Route exact path="/">
+            <LazyHome />
+          </Route>
+          <Route path="/about">
+            <LazyAbout />
+          </Route>
+          <Route path="/topics">
+            <LazyTopicsRouter />
+          </Route>
+        </Switch>
+      </React.Suspense>
     </>
   );
 }

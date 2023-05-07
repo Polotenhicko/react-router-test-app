@@ -1,10 +1,9 @@
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
-import { Topic } from '../Topic/Topic';
+import { Topic } from '../Topic';
 
-export function TopicsRouter() {
-  let match = useRouteMatch();
+export default function TopicsRouter() {
+  const match = useRouteMatch();
   console.log(match);
-  // обернуть в lazy, suspense
   return (
     <div>
       <h2>Topics</h2>
